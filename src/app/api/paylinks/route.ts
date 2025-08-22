@@ -5,7 +5,7 @@ import { prisma } from '@/lib/db';
 import { ENV } from '@/lib/env';
 import { toMicros } from '@/lib/format';
 
-function serializeBigInts<T extends Record<string, any>>(obj: T) {
+function serializeBigInts<T extends Record<string, unknown>>(obj: T) {
   return JSON.parse(JSON.stringify(obj, (_, v) => (typeof v === 'bigint' ? v.toString() : v)));
 }
 
